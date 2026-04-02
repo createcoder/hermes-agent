@@ -461,7 +461,7 @@ class TestProfileScopedConfig:
                 "hermes.dreamer": {"peerName": "dreamer-user"},
             },
         }))
-        with patch("honcho_integration.client.resolve_active_host", return_value="hermes.dreamer"):
+        with patch("plugins.memory.honcho.client.resolve_active_host", return_value="hermes.dreamer"):
             config = HonchoClientConfig.from_global_config(config_path=config_file)
         assert config.host == "hermes.dreamer"
         assert config.peer_name == "dreamer-user"
