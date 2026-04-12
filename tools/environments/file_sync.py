@@ -161,6 +161,7 @@ class FileSyncManager:
 
         # Snapshot for rollback (only when there's work to do)
         prev_files = dict(self._synced_files)
+        prev_hashes = dict(self._pushed_hashes)
 
         if to_upload:
             logger.debug("file_sync: uploading %d file(s)", len(to_upload))
@@ -193,6 +194,7 @@ class FileSyncManager:
 
         except Exception as exc:
             self._synced_files = prev_files
+            self._pushed_hashes = prev_hashes
             self._last_sync_time = time.monotonic()
             logger.warning("file_sync: sync failed, rolled back state: %s", exc)
 
