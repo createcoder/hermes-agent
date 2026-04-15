@@ -91,7 +91,6 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'Skills',
           items: [
-            'user-guide/skills/godmode',
             'user-guide/skills/google-workspace',
           ],
         },
